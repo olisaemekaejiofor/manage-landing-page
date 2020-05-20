@@ -17,7 +17,7 @@
     margin: 0;
 }
 body {
-    font-family: 'Public Sans', sans-serif;
+    font-family: sans-serif;
 }
 h1,h2,h4,h4,h5,h6 {
     color: var(--Very-Dark-Blue);
@@ -268,7 +268,7 @@ header .hamburger.show .close {
 }
 .compImg .container {
     width: 100%;
-   /* background: url(../images/bg-tablet-pattern.svg);
+   /* background: url(bg-tablet-pattern.svg);
     background-position: right;
     background-repeat: no-repeat;
     background-size: 20%;*/
