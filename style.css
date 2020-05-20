@@ -1,0 +1,468 @@
+:root {
+
+    /* Primary Colors */
+    --Bright-Red: hsl(12, 88%, 59%);
+    --Dark-Blue: hsl(228, 39%, 23%);
+
+    /* Secondary Colors */
+    --Dark-Grayish-Blue: hsl(227, 12%, 61%);
+    --Very-Dark-Blue: hsl(233, 12%, 13%);
+    --Very-Pale-Red: hsl(13, 100%, 96%);
+    --Vary-Light-Gray: hsl(0, 0%, 98%)
+}
+
+/*basic styling for the basic elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    font-family: 'Public Sans', sans-serif;
+}
+h1,h2,h4,h4,h5,h6 {
+    color: var(--Very-Dark-Blue);
+    font-weight: 300;
+}
+p {
+    color: var(--Dark-Grayish-Blue);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+}
+/**/
+.container {
+    width: 90%;
+    margin: auto;
+}
+.btn {
+    display: inline-block;
+    background: var(--Bright-Red);
+    color: var(--Very-Pale-Red);
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+/*Header and Navigation styling*/
+button {
+    border: none;
+    background: transparent;
+}
+
+.nav {
+    background-color: var(white);
+    height: 4rem;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.nav .container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+    "logo ham"
+    "list list";
+    padding: 1rem 0;
+}
+
+.hamburger {
+    position: relative;
+    grid-area: ham;
+    align-self: center;
+    justify-self: end;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.logo {
+    position: relative;
+    align-self: center;
+    grid-area: logo;
+}
+
+#mobile {
+    grid-area: list;
+}
+.nav .btn {
+    display: none;
+}
+
+header #mobile ul {
+    position: relative;
+    transform: scale(0);
+    transform: translateY(-500px);
+    transition: all ease-in-out 0.5s;
+    text-align: center;
+    z-index: 1;
+}
+
+header #mobile.show {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 4rem;
+    left: 0;
+    align-items: center;
+}
+
+header #mobile.show::after {
+    content:'';
+    opacity: 0.3;
+    position: absolute;
+    width: 100%;
+    height: 100%;   
+}
+
+header #mobile.show ul {
+    background: white;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1.5rem 0;
+    width: 85%;
+    text-align: center;
+    color: black;
+    transform: scale(1);
+    transition: all ease-in-out 0.5s;
+    z-index: 1;
+}
+
+header ul li {
+    padding: 0.7rem 0;
+}
+
+header ul a {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+header ul a:hover {    
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+header .hamburger .close {
+    display: none;
+}
+
+header .hamburger.show .open {
+    display: block;
+}
+
+header .hamburger.show .close {
+    display: none;
+}
+
+.main-menu-mobile {
+    background: white;
+}
+/*making the Header and navigation responsive on desktop view of screen less than 798px*/
+@media (min-width: 798px) {
+    /* Header and Nav */
+    .nav .container {
+        grid-template-columns: 3fr 8fr 3fr;
+    }
+
+    header ul a {
+        font-weight: 300;
+    }
+
+    .nav-btn {
+        grid-area: nav-btn;
+        justify-self: flex-end;
+    }
+}
+/*making the Header and navigation responsive on desktop view*/
+@media (min-width: 1000px) {
+    /* Header and Nav */
+    .nav {
+        position: relative;
+        width: 100%;
+        height: 4.5rem;
+        padding: 0;
+        z-index: 2;
+    }
+
+    .nav .container {
+        grid-template-columns: 2fr 7fr 2fr;
+        grid-template-areas: "logo main-menu nav-btn";
+        gap: 1rem;
+        align-items: baseline;
+    }
+
+    .logo {
+        grid-area: logo;
+        align-self: baseline;
+        justify-self: flex-start;
+    }
+    
+
+    .hamburger {
+        display: none;
+    }
+
+    #mobile {
+        grid-area: main-menu;
+        justify-self: center;
+    }
+
+    .nav-btn {
+        grid-area: nav-btn;
+        justify-self: flex-end;
+    }
+
+    header #mobile ul {
+        position: relative;
+        transform: scale(1);
+        transform: translateY(0px);
+        transition: none;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .main-menu {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-menu li {
+        margin: 0 1rem;
+    }
+
+    .main-menu li:hover {
+        color: var(--Dark-Blue);
+        border-bottom: var(--Dark-Blue) solid 3px;
+    }
+    
+    .main-menu a {
+        color: var(--Dark-Grayish-Blue);
+        height: 4rem;
+    }
+
+    .nav .btn {
+        display: block;
+        text-align: center;
+    }
+}
+/*main styling*/
+/*second part styling*/
+.grid {
+    gap: 1.7rem;
+}
+.box {
+    text-align: left;
+    padding: 2rem 0 1rem;
+}
+.compImg .container {
+    width: 100%;
+   /* background: url(../images/bg-tablet-pattern.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 20%;*/
+    margin: auto;
+}
+
+.content {
+    margin: auto;
+    text-align: center;
+    width: 90%;
+}
+
+.title {
+    font-size: 2.4rem;
+    margin: 2rem 0 1.2rem;
+}
+.content .btn {
+    margin: 2rem 0;
+}
+
+.mockup {
+    width: 100%;
+    padding: 1rem;
+}
+/*Last*/
+.last{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: coral;
+}
+.lstBtn{
+    margin-left: 28%;
+}
+/* Footer */
+footer {
+    background: var(--Very-Dark-Blue);
+    padding: 3rem 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-icons {
+    padding: 2rem 0;
+}
+
+.footer-icons a {
+    margin: 0 0.25rem;
+}
+
+.footer-list li {
+    margin-bottom: 1rem;
+}
+
+.footer-list a {
+    color: var(--Vary-Light-Gray);
+}
+
+.footer-list a:hover {
+    color: var(--Bright-Red);
+}
+
+footer .btn {
+    margin: 1rem 0 1.5rem;
+}
+
+.attribution {
+    font-size: 0.6rem;
+    text-align: center;
+    color: var(--Dark-Blue);
+    margin: 0.5rem 0;
+}
+
+.attribution a {
+    color: var(--Dark-Grayish-Blue);
+}
+
+
+.attribution a:hover {
+    color: var(--lime-green);
+}
+/*making the main responsive on screens less than 798px*/
+@media (min-width: 798px) {
+    p {
+        font-size: 1rem;
+    }
+    section {
+        padding: 7rem 0;
+    }
+    .container {
+        width: 80%;
+    }
+    .section-title {
+        font-size: 2.4rem;
+    }
+    /*  main responsive styling*/
+    .compImg {
+        margin: 0;
+    }
+    .compImg .container{
+        display: grid;
+        grid-template-columns: 3fr 5fr;
+        grid-template-areas: "content mockup";
+        gap: 6rem;
+        background: none;
+        margin: auto;
+    }
+    .content {
+        grid-area: content;
+        text-align: left;
+        margin: auto;
+        margin-left: 29%;
+        padding: 9.5rem 0;
+        display: grid;
+        align-content: center;
+        align-items: center;
+        justify-items: left;
+    }
+    .title {
+        font-size: 3.2rem;
+        margin: 2rem 0 1.2rem;
+    }
+    .hitle {
+        font-size: 3.2rem;
+        margin: 2rem 0 1.2rem;
+        margin-top: -100px;
+    }
+
+    .content .btn {
+        margin: 2rem 0;
+    }
+    .right-side {
+        position: relative;
+        margin: 0;
+        background: url(../images/bg-tablet-pattern.svg);
+        background-position:top left;
+        background-position-y: 400%;
+        background-position-x: 350%;
+        background-repeat: no-repeat;
+        background-size: 750px, cover;
+    }
+    .mockup {
+        position: absolute;
+        top: 3%;
+        right: 5%;
+        padding: 0;
+        margin: 0;
+        width: 75%;
+    }
+    /*second part of the main*/
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 8rem;
+    }
+    .box {
+        text-align: left;
+        padding: 2rem 0 1rem;
+    }
+    /*last*/
+    .lstBtn{
+        margin-left: 44%;
+    }
+     /* Footer */
+     footer .container {
+        display: grid;
+        grid-template-columns: 3fr 2fr 2fr 3fr;
+        gap: 1rem;
+        font-size: 1rem;
+        text-align: left;
+        align-content: flex-start;
+    }
+
+    .footer-list li {
+        margin-bottom: 1.5rem;
+    }
+
+    .copyright {
+        text-align: end;
+    }
+
+    .copyright p {
+        font-size: 0.8rem;
+    }
+
+    footer .btn {
+        margin: 0 0 1.5rem;
+    }
+
+    .attribution {
+        text-align: end;
+    }    
+}
+
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
