@@ -402,7 +402,7 @@ footer .btn {
     .right-side {
         position: relative;
         margin: 0;
-        background: url(../images/bg-tablet-pattern.svg);
+        background: url(bg-tablet-pattern.svg);
         background-position:top left;
         background-position-y: 400%;
         background-position-x: 350%;
