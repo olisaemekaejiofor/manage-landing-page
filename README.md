@@ -1,2 +1,2 @@
-# day19
+# Manage Landing Page
 https://olisaemekaejiofor.github.io/day19/
